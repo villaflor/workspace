@@ -8,7 +8,7 @@ RUN apt update \
     && apt upgrade -y \
 
     ## install dependencies
-    && apt install -y lsb-release ca-certificates apt-transport-https software-properties-common \
+    && apt install -y lsb-release ca-certificates apt-transport-https software-properties-common git \
     && add-apt-repository ppa:ondrej/php \
     && apt update \
 
