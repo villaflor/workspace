@@ -11,6 +11,7 @@ RUN apt update \
     && apt install -y lsb-release ca-certificates apt-transport-https software-properties-common git \
     && add-apt-repository ppa:ondrej/php \
     && apt update \
+    && apt upgrade -y \
 
     ## install php
     && apt install -y php8.0-cli php8.0-dev php8.0-gd php8.0-curl php8.0-imap php8.0-mysql php8.0-mbstring php8.0-xml \
