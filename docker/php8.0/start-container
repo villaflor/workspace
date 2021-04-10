@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# inserting global composer in PATH
+echo 'export PATH="$PATH:$HOME/.config/composer/vendor/bin"' >> $HOME/.bashrc
+
+# adding alias
+echo 'alias pa="php artisan"' >> $HOME/.bashrc
+
+tail -f /dev/null
