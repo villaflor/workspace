@@ -8,7 +8,7 @@ RUN apt update \
     && apt upgrade -y \
 
     ## install dependencies
-    && apt install -y lsb-release ca-certificates apt-transport-https software-properties-common git \
+    && apt install -y lsb-release ca-certificates apt-transport-https software-properties-common git wget \
     && add-apt-repository ppa:ondrej/php \
     && apt update \
     && apt upgrade -y \
@@ -25,6 +25,10 @@ RUN apt update \
     && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
     && apt install -y nodejs \
 
+    #install golang
+    && wget -P /tmp/ https://golang.org/dl/go1.16.4.linux-amd64.tar.gz \
+    && tar -C /usr/local/ -xzvf /tmp/go1.16.4.linux-amd64.tar.gz \
+
     # cleaning
     && apt -y autoremove \
     && apt clean \
@@ -32,6 +36,7 @@ RUN apt update \
 
 # install composer
 RUN composer global require laravel/installer
+
 
 COPY start-container /usr/local/bin/start-container
 RUN chmod +x /usr/local/bin/start-container
