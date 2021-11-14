@@ -1,16 +1,11 @@
-version: '3.8'
+version: '3.9'
 services:
-    app:
-        build:
-            context: ./docker/PHP8.0
-            dockerfile: Dockerfile
-        container_name: workspace
-        image: workspace-8.0/app
-        restart: always
-        volumes:
-            - '../projects:/workspace'
-#        networks:
-#            - workspace
-#networks:
-#    workspace:
-#        driver: bridge
+  app:
+    build:
+      context: ./docker/PHP8.0
+      dockerfile: Dockerfile
+    container_name: workspace
+    image: workspace-8.0/app
+    restart: unless-stopped
+    volumes:
+      - '..:/workspace'
