@@ -9,3 +9,9 @@ services:
     restart: unless-stopped
     volumes:
       - '..:/workspace'
+    networks:
+      - backend
+networks:
+  backend:
+    external:
+      name: backend_network
